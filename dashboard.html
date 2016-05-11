@@ -1,0 +1,96 @@
+<html>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+<head>
+    <title>Sliders</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="container col-sm-3 col-xs-10" id="modalityList">
+        <input type="checkbox" id="linguistic">Linguistic
+        <br>
+        <input type="checkbox" id="logical">Logical-mathematical
+        <br>
+        <input type="checkbox" id="musical">Musical
+        <br>
+        <input type="checkbox" id="interpersonal">Interpersonal
+        <br>
+        <input type="checkbox" id="intrapersonal">Intrapersonal
+        <br>
+        <input type="checkbox" id="spatial">Spatial-visual
+        <br>
+        <input type="checkbox" id="naturalist">Naturalist
+        <br>
+        <input type="checkbox" id="bodily">Bodily-kinesthetic
+        <br>
+    </div>
+
+    <div class="container col-sm-3 col-xs-10" id="slider-window">
+        <div class='hidden' id='linguistic-slider'>Linguistic
+            <div class="outer">
+                <div class="inner" id="value-bar-linguistic"></div>
+                <input id="linguistic-input" type='range'>
+            </div>
+        </div>
+        <div class='hidden' id='logical-slider'>Logical
+            <div class="outer">
+                <div class="inner" id="value-bar-logical"></div>
+                <input id="logical-input" type='range'>
+            </div>
+        </div>
+        <div class='hidden' id='musical-slider'>Musical     
+            <div class="outer">
+                <div class="inner" id="value-bar-musical"></div>
+                <input id="musical-input" type='range'>
+            </div>
+        </div>
+        <div class='hidden' id='interpersonal-slider'>Interpersonal        
+            <div class="outer">
+                <div class="inner" id="value-bar-interpersonal"></div>
+                <input id="interpersonal-input" type='range'>
+            </div>
+        </div>
+        <div class='hidden' id='intrapersonal-slider'>Intrapersonal        
+            <div class="outer">
+                <div class="inner" id="value-bar-intrapersonal"></div>
+                <input id="intrapersonal-input" type='range'>
+            </div>
+        </div>
+        <div class='hidden' id='spatial-slider'>Spatial-visual        
+            <div class="outer">
+                <div class="inner" id="value-bar-spatial"></div>
+                <input id="spatial-input" type='range'>
+            </div>
+        </div>
+        <div class='hidden' id='naturalist-slider'>Naturalist       
+            <div class="outer">
+                <div class="inner" id="value-bar-naturalist"></div>
+                <input id="naturalist-input" type='range'>
+            </div>
+        </div>
+        <div class='hidden' id='bodily-slider'>Bodily-kinesthetic        
+            <div class="outer">
+                <div class="inner" id="value-bar-bodily"></div>
+                <input id="bodily-input" type='range'>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container col-sm-2 col-xs-10">
+        <button class="button" id="submit-button">Show me my profile</button>
+        <div id="learner-modality-graph"></div>
+    </div>
+
+    <!--load JS libraries-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+
+</html>
