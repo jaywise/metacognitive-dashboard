@@ -1,96 +1,94 @@
 <html>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+
 <head>
     <title>Sliders</title>
     <style>
+
     </style>
 </head>
 
 <body>
-    <div class="container col-sm-3 col-xs-10" id="modalityList">
-        <input type="checkbox" id="linguistic">Linguistic
-        <br>
-        <input type="checkbox" id="logical">Logical-mathematical
-        <br>
-        <input type="checkbox" id="musical">Musical
-        <br>
-        <input type="checkbox" id="interpersonal">Interpersonal
-        <br>
-        <input type="checkbox" id="intrapersonal">Intrapersonal
-        <br>
-        <input type="checkbox" id="spatial">Spatial-visual
-        <br>
-        <input type="checkbox" id="naturalist">Naturalist
-        <br>
-        <input type="checkbox" id="bodily">Bodily-kinesthetic
-        <br>
+    <!--TODO integrate all sliders and checkboxes into one div so that all items for each modaity live on one line in one big container -->
+    <div class="container col-sm-5 col-xs-12">
+        <div class="container col-sm-3 col-xs-10" id="modalityList">
+            <input type="checkbox" id="linguistic">Linguistic
+            <br>
+            <input type="checkbox" id="logical">Logical-mathematical
+            <br>
+            <input type="checkbox" id="musical">Musical
+            <br>
+            <input type="checkbox" id="interpersonal">Interpersonal
+            <br>
+            <input type="checkbox" id="intrapersonal">Intrapersonal
+            <br>
+            <input type="checkbox" id="spatial">Spatial-visual
+            <br>
+            <input type="checkbox" id="naturalist">Naturalist
+            <br>
+            <input type="checkbox" id="bodily">Bodily-kinesthetic
+            <br>
+        </div>
+        <div class="container col-sm-4" id="slider-window">
+            <div class='disappear' id='linguistic-slider'>
+                <div class="outer">
+                    <div class="inner linguistic-color" id="value-bar-linguistic"></div>
+                    <input id="linguistic-input" type='range'>
+                </div>
+            </div>
+            <div class='disappear' id='logical-slider'>
+                <div class="outer">
+                    <div class="inner logical-color" id="value-bar-logical"></div>
+                    <input id="logical-input" type='range'>
+                </div>
+            </div>
+            <div class='disappear' id='musical-slider'>
+                <div class="outer">
+                    <div class="inner musical-color" id="value-bar-musical"></div>
+                    <input id="musical-input" type='range'>
+                </div>
+            </div>
+            <div class='disappear' id='interpersonal-slider'>
+                <div class="outer">
+                    <div class="inner interpersonal-color" id="value-bar-interpersonal"></div>
+                    <input id="interpersonal-input" type='range'>
+                </div>
+            </div>
+            <div class='disappear' id='intrapersonal-slider'>
+                <div class="outer">
+                    <div class="inner intrapersonal-color" id="value-bar-intrapersonal"></div>
+                    <input id="intrapersonal-input" type='range'>
+                </div>
+            </div>
+            <div class='disappear' id='spatial-slider'>
+                <div class="outer">
+                    <div class="inner spatial-color" id="value-bar-spatial"></div>
+                    <input id="spatial-input" type='range'>
+                </div>
+            </div>
+            <div class='disappear' id='naturalist-slider'>
+                <div class="outer">
+                    <div class="inner naturalist-color" id="value-bar-naturalist"></div>
+                    <input id="naturalist-input" type='range'>
+                </div>
+            </div>
+            <div class='disappear' id='bodily-slider'>
+                <div class="outer">
+                    <div class="inner bodily-color" id="value-bar-bodily"></div>
+                    <input id="bodily-input" type='range'>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="container col-sm-3 col-xs-10" id="slider-window">
-        <div class='hidden' id='linguistic-slider'>Linguistic
-            <div class="outer">
-                <div class="inner" id="value-bar-linguistic"></div>
-                <input id="linguistic-input" type='range'>
-            </div>
-        </div>
-        <div class='hidden' id='logical-slider'>Logical
-            <div class="outer">
-                <div class="inner" id="value-bar-logical"></div>
-                <input id="logical-input" type='range'>
-            </div>
-        </div>
-        <div class='hidden' id='musical-slider'>Musical     
-            <div class="outer">
-                <div class="inner" id="value-bar-musical"></div>
-                <input id="musical-input" type='range'>
-            </div>
-        </div>
-        <div class='hidden' id='interpersonal-slider'>Interpersonal        
-            <div class="outer">
-                <div class="inner" id="value-bar-interpersonal"></div>
-                <input id="interpersonal-input" type='range'>
-            </div>
-        </div>
-        <div class='hidden' id='intrapersonal-slider'>Intrapersonal        
-            <div class="outer">
-                <div class="inner" id="value-bar-intrapersonal"></div>
-                <input id="intrapersonal-input" type='range'>
-            </div>
-        </div>
-        <div class='hidden' id='spatial-slider'>Spatial-visual        
-            <div class="outer">
-                <div class="inner" id="value-bar-spatial"></div>
-                <input id="spatial-input" type='range'>
-            </div>
-        </div>
-        <div class='hidden' id='naturalist-slider'>Naturalist       
-            <div class="outer">
-                <div class="inner" id="value-bar-naturalist"></div>
-                <input id="naturalist-input" type='range'>
-            </div>
-        </div>
-        <div class='hidden' id='bodily-slider'>Bodily-kinesthetic        
-            <div class="outer">
-                <div class="inner" id="value-bar-bodily"></div>
-                <input id="bodily-input" type='range'>
-            </div>
-        </div>
-
-    </div>
-
     <div class="container col-sm-2 col-xs-10">
         <button class="button" id="submit-button">Show me my profile</button>
-        <div id="learner-modality-graph"></div>
+        <div class="container col-sm-6" id="learner-modality-graph"></div>
     </div>
-
-    <!--load JS libraries-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="script.js"></script>
-    
+    <script src="js/script.js"></script>
 </body>
 
 </html>
