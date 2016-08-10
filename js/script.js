@@ -42,11 +42,17 @@ document.querySelector('#modalityList').addEventListener('change', function(even
     var sliderObj = {};
     sliderObj.id = event.target.id;
 
+    // TODO -- aligning checkbox with respective progress bar doesn't work with below getBoundingClinetRect function. is some CSS overriding it? simpler way through inline html elements? eliminate containers?
+    //var rect = event.srcElement.getBoundingClientRect();
+    // console.log(rect.top, rect.right, rect.bottom, rect.left);
+    console.log(event);
+
     if (event.target.checked == true) {
         numOfSliders++;
         adjustExistingSliderValuesDown();
 
         sliderObj.value = (100 / numOfSliders);
+        sliderObj.color = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')'; //generates random color
         allSliders.push(sliderObj);
 
         console.log("array values when checked: " + JSON.stringify(allSliders));
@@ -106,9 +112,10 @@ var displayAllSliderValues = function() {
         };
         sliderValueToDisplay = Math.round(sliderValueToDisplay);
 
-        //sends values to inputs and value bars
+        //sends values and color styling to inputs and value bars
         document.querySelector("#value-bar-" + allSliders[i].id).innerHTML = sliderValueToDisplay;
         document.querySelector("#value-bar-" + allSliders[i].id).style.width = sliderValueToDisplay * 2 + 'px'; //multiply value by two to create longer, but proportionate progress bar
+        document.querySelector("#value-bar-" + allSliders[i].id).style.backgroundColor = allSliders[i].color; 
         document.querySelector("#" + allSliders[i].id + "-input").value = sliderValueToDisplay;
         sum += sliderValueToDisplay;
     }
@@ -150,7 +157,6 @@ document.querySelector('#slider-window').addEventListener('input', function(even
             }
             clickedSlider.value = parseFloat(100 - sumOfNonClickedSliders);
         };
-
     };
     if (clickedSlider.value < oldValue) {
         var sumOfNonClickedSliders = 0;
@@ -172,74 +178,109 @@ document.querySelector('#slider-window').addEventListener('input', function(even
     };
 
     displayAllSliderValues();
-
-
 });
 
 
 // Generates and populates graph div
 document.querySelector('#submit-button').addEventListener('click', function(event) {
+    document.querySelector("#pieChart").innerHTML = "";
     var data = [];
-    /*TODO -- create tailor-made array here that plug directly into JSON
+    /*TODO -- create tailor-made array here that plug directly into JSON */
+
+    //identifies id in arry and assigns color for graph
     for (var i = 0; i < allSliders.length; i++) {
-                data.push(allSliders[i].id + ", " + allSliders[i].value);
-                }
-        console.log(data);
-    */
-    $('#learner-modality-graph').highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: 0,
-            plotShadow: false
-        },
+        data.push({label: allSliders[i].id, value: allSliders[i].value, color: allSliders[i].color});
+    };
+    console.log("data array is " + data); 
 
-        title: {
-            text: '',
-            align: 'center',
-            verticalAlign: 'middle',
-            y: 40
+    var pie = new d3pie("pieChart", {
+        "header": {
+            "title": {
+                "fontSize": 24,
+                "font": "open sans"
+            },
+            "subtitle": {
+                "color": "#999999",
+                "fontSize": 12,
+                "font": "open sans"
+            },
+            "titleSubtitlePadding": 9
         },
+        "footer": {
+            "color": "#999999",
+            "fontSize": 10,
+            "font": "open sans",
+            "location": "bottom-left"
+        },
+        "size": {
+            "canvasWidth": 450,
+            "pieInnerRadius": "44%",
+            "pieOuterRadius": "95%"
+        },
+        "data": {
+            "sortOrder": "value-desc",
+            "content": data
+        },
+        "labels": {
+            "outer": {
+                "format": null
+            },
+            "inner": {
+                "format": "label-percentage2",
+                "hideWhenLessThanPercentage": null
 
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                dataLabels: {
-                    enabled: true,
-                    distance: -50,
-                    style: {
-                        fontWeight: 'bold',
-                        color: 'white',
-                        textShadow: '0px 1px 2px black'
-                    }
-                },
-                startAngle: -90,
-                endAngle: 90,
-                center: ['50%', '75%']
+            },
+            "mainLabel": {
+                "fontSize": 14,
+                "color": "#d3d3d3"
+            },
+            "percentage": {
+                "color": "#d3d3d3",
+                "decimalPlaces": 0,
+                "fontSize": 14
+            },
+            "value": {
+                "color": "#adadad",
+                "fontSize": 11
+            },
+            "lines": {
+                "enabled": false, 
+                "style": "straight"
+            },
+            "truncation": {
+                "enabled": true
             }
         },
-        series: [{
-            type: 'pie',
-            name: 'Proportion',
-            innerSize: '50%',
-            data: [
-                /*TODO -- fix console message: Uncaught SyntaxError: Unexpected token for
-                for (var i = 0; i < allSliders.length; i++) {
-                    "[" + allSliders[i].id + ", " + allSliders[i].value + "],"
-                }
-                */
-                /*TODO -- only works with 3 items in array. breaks with 2 or 4 items*/
-                [allSliders[0].id, allSliders[0].value],
-                [allSliders[1].id, allSliders[1].value],
-                [allSliders[2].id, allSliders[2].value], {
-                    name: 'Proprietary or Undetectable',
-                    y: 0.2,
-                    dataLabels: {
-                        enabled: false
-                    }
-                }
-            ]
-        }]
+        "tooltips": {
+            "enabled": true,
+            "type": "placeholder",
+            "string": "Click to learn more",
+            "styles": {
+                "fadeInSpeed": 260,
+                "font": "verdana"
+            }
+        },
+        "effects": {
+            "pullOutSegmentOnClick": {
+                "effect": "elastic",
+                "speed": 400,
+                "size": 25
+            },
+            "highlightLuminosity": 0
+        },
+        "misc": {
+            "gradient": {
+                "enabled": true,
+                "percentage": 100
+            }
+        }
     });
 });
+
+//listens for click on pie chart piece that triggers pop-up modal
+document.querySelector("#pieChart").addEventListener('click', function(event) {
+    var myID = event.srcElement.__data__.label;
+    $("#" + myID +"Modal").modal();
+});
+
+

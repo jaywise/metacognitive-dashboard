@@ -1,6 +1,6 @@
 <html>
-<link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
 <head>
     <title>Sliders</title>
@@ -11,83 +11,199 @@
 
 <body>
     <!--TODO integrate all sliders and checkboxes into one div so that all items for each modaity live on one line in one big container -->
-    <div class="container col-sm-5 col-xs-12">
-        <div class="container col-sm-3 col-xs-10" id="modalityList">
-            <input type="checkbox" id="linguistic">Linguistic
+    <div class="container col-md-6 col-xs-12">
+        <h4>1. How do you learn best? Select one or more descriptions below. Then, adjust the sliders to reflect your personality.</h4>
+        <div class="container col-md-3 col-xs-12" id="modalityList">
+            <input type="checkbox" id="linguistic">Seeing and hearing words
             <br>
-            <input type="checkbox" id="logical">Logical-mathematical
+            <input type="checkbox" id="logical">Graphs, charts, and diagrams
             <br>
-            <input type="checkbox" id="musical">Musical
+            <input type="checkbox" id="musical">Music and melodies
             <br>
-            <input type="checkbox" id="interpersonal">Interpersonal
+            <input type="checkbox" id="interpersonal">Sharing and ollaborating with others
             <br>
-            <input type="checkbox" id="intrapersonal">Intrapersonal
+            <input type="checkbox" id="intrapersonal">Thinking about ideas alone
             <br>
-            <input type="checkbox" id="spatial">Spatial-visual
+            <input type="checkbox" id="spatial">Pictures, maps, and drawings
             <br>
-            <input type="checkbox" id="naturalist">Naturalist
+            <input type="checkbox" id="naturalist">Connections to nature and the environment
             <br>
-            <input type="checkbox" id="bodily">Bodily-kinesthetic
+            <input type="checkbox" id="bodily">Feeling and moving
             <br>
         </div>
         <div class="container col-sm-4" id="slider-window">
             <div class='disappear' id='linguistic-slider'>
                 <div class="outer">
-                    <div class="inner linguistic-color" id="value-bar-linguistic"></div>
+                    <div class="inner" id="value-bar-linguistic"></div>
                     <input id="linguistic-input" type='range'>
                 </div>
             </div>
             <div class='disappear' id='logical-slider'>
                 <div class="outer">
-                    <div class="inner logical-color" id="value-bar-logical"></div>
+                    <div class="inner" id="value-bar-logical"></div>
                     <input id="logical-input" type='range'>
                 </div>
             </div>
             <div class='disappear' id='musical-slider'>
                 <div class="outer">
-                    <div class="inner musical-color" id="value-bar-musical"></div>
+                    <div class="inner" id="value-bar-musical"></div>
                     <input id="musical-input" type='range'>
                 </div>
             </div>
             <div class='disappear' id='interpersonal-slider'>
                 <div class="outer">
-                    <div class="inner interpersonal-color" id="value-bar-interpersonal"></div>
+                    <div class="inner" id="value-bar-interpersonal"></div>
                     <input id="interpersonal-input" type='range'>
                 </div>
             </div>
             <div class='disappear' id='intrapersonal-slider'>
                 <div class="outer">
-                    <div class="inner intrapersonal-color" id="value-bar-intrapersonal"></div>
+                    <div class="inner" id="value-bar-intrapersonal"></div>
                     <input id="intrapersonal-input" type='range'>
                 </div>
             </div>
             <div class='disappear' id='spatial-slider'>
                 <div class="outer">
-                    <div class="inner spatial-color" id="value-bar-spatial"></div>
+                    <div class="inner" id="value-bar-spatial"></div>
                     <input id="spatial-input" type='range'>
                 </div>
             </div>
             <div class='disappear' id='naturalist-slider'>
                 <div class="outer">
-                    <div class="inner naturalist-color" id="value-bar-naturalist"></div>
+                    <div class="inner" id="value-bar-naturalist"></div>
                     <input id="naturalist-input" type='range'>
                 </div>
             </div>
             <div class='disappear' id='bodily-slider'>
                 <div class="outer">
-                    <div class="inner bodily-color" id="value-bar-bodily"></div>
+                    <div class="inner" id="value-bar-bodily"></div>
                     <input id="bodily-input" type='range'>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container col-sm-2 col-xs-10">
+    <div class="container col-md-6 col-xs-12">
+        <h4>2. Click the button below to see your learning profile. Select a part of the graph to learn more about that learning style.</h4>
         <button class="button" id="submit-button">Show me my profile</button>
-        <div class="container col-sm-6" id="learner-modality-graph"></div>
+        <div class="contianer img-responsive" id="pieChart"></div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!--Learning intelligence modals start-->
+    <!--TODO make modal work in firefox-->
+    <div class="container">
+        <div class="modal fade" id="linguisticModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Learner types</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p><b>Linguistic learners</b> lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. For more information, <a href="https://en.wikipedia.org/wiki/Linguistic_intelligence_(psychology)" target="_blank">click here</a>..</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="logicalModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Learner types</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p><b>Logical learners</b> lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. For more information, <a href="https://en.wikipedia.org/wiki/Spatial_intelligence_(psychology)" target="_blank">click here</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="musicalModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Learner types</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p><b>Musical learners</b> lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. For more information, <a href="https://en.wikipedia.org/wiki/Musical_intelligence_(psychology)" target="_blank">click here</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="interpersonalModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Learner types</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p><b>Interpersonal learners</b> lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. For more information, <a href="https://en.wikipedia.org/wiki/Interpersonal_intelligence_(psychology)" target="_blank">click here</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="intrapersonalModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Learner types</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p><b>Intrapersonal learners</b> lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. For more information, <a href="https://en.wikipedia.org/wiki/Intrapersonal_intelligence_(psychology)" target="_blank">click here</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="spatialModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Learner types</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p><b>Spatial learners</b> lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. For more information, <a href="https://en.wikipedia.org/wiki/Spatial_intelligence_(psychology)" target="_blank">click here</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="naturalistModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Learner types</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p><b>Naturalist learners</b> lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. For more information, <a href="https://en.wikipedia.org/wiki/Naturalist_intelligence_(psychology)" target="_blank">click here</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="bodilyModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Learner types</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p><b>Bodily-kinestheic learners</b> lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. For more information, <a href="https://en.wikipedia.org/wiki/Bodily-kinesthetic_intelligence_(psychology)" target="_blank">click here</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--end of modals-->
+    <div class="container pull-left">
+        <h4>(COMING SOON)3. Check out the below resources that fit your learning profile</h4>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script src="js/d3pie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 

@@ -1,41 +1,9 @@
-    body {
+body {
         font-family: sans-serif;
     }
     
     *[id^='value-bar-'] {
         opacity: 1;
-    }
-    
-    .linguistic-color {
-        background-color: #27ae60;
-    }
-    
-    .logical-color {
-        background-color: #e67e22;
-    }
-    
-    .musical-color {
-        background-color: #2c3e50;
-    }
-    
-    .interpersonal-color {
-        background-color: #3498db;
-    }
-    
-    .intrapersonal-color {
-        background-color: #8e44ad;
-    }
-    
-    .spatial-color {
-        background-color: #bdc3c7;
-    }
-    
-    .naturalist-color {
-        background-color: #c0392b;
-    }
-    
-    .bodily-color {
-        background-color: #f1c40f;
     }
     
     #slider-window input {
@@ -47,6 +15,7 @@
     
     .disappear {
         opacity: 0;
+        position: absolute;
     }
     
     .outer {
@@ -90,8 +59,7 @@
     }
     
     input[type=range]:focus {
-        outline: none;
-        /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+        outline: none; /* Removes the blue border */
     }
     
     input[type=range]::-ms-track {
@@ -145,9 +113,12 @@
     }
     /*chart div style*/
     
-    #learner-modality-graph {
-        min-width: 310px;
-        height: 400px;
-        max-width: 600px;
+    #pieChart {
+        width: 100%;
+        height: auto;
     }
-    /*----- Styling range inputs ends --------*/
+}
+
+/*----- Styling range inputs ends --------*/
+
+/*--------Media queries----------*/
